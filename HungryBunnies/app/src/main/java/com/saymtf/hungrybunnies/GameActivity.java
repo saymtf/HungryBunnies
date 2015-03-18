@@ -2,6 +2,7 @@ package com.saymtf.hungrybunnies;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -28,6 +29,11 @@ public class GameActivity extends Activity {
             super(context);
 
             setEGLContextClientVersion(2);
+            setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+
+            //getHolder().setFormat(PixelFormat.TRANSLUCENT);
+            setBackgroundResource(R.mipmap.game_background);
+            //setZOrderOnTop(true);
 
             mRenderer = new MyGLRenderer();
 
