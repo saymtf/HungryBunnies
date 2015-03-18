@@ -32,7 +32,7 @@ public class GameActivity extends Activity {
             setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 
             //getHolder().setFormat(PixelFormat.TRANSLUCENT);
-            setBackgroundResource(R.mipmap.game_background);
+            setBackgroundResource(R.mipmap.background_image);
             //setZOrderOnTop(true);
 
             mRenderer = new MyGLRenderer();
