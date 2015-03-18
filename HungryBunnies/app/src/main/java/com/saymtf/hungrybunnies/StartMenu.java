@@ -1,20 +1,16 @@
 package com.saymtf.hungrybunnies;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class StartMenu extends Activity {
 
-    Button playGameButton;
-    Button settingsButton;
+    ImageButton playGameButton;
+    ImageButton optionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +18,8 @@ public class StartMenu extends Activity {
         setContentView(R.layout.activity_start_menu);
 
 
-        playGameButton = (Button) findViewById(R.id.playGameButton);
-        settingsButton = (Button) findViewById(R.id.settingsButton);
+        playGameButton = (ImageButton) findViewById(R.id.playGameButton);
+        optionButton = (ImageButton) findViewById(R.id.optionButton);
 
         playGameButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -34,7 +30,7 @@ public class StartMenu extends Activity {
              }
         );
 
-        settingsButton.setOnClickListener(settingsButtonListener);
+        optionButton.setOnClickListener(settingsButtonListener);
 
     }
 
