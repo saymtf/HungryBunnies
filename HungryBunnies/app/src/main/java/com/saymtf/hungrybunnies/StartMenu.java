@@ -23,7 +23,7 @@ public class StartMenu extends Activity {
 
 
         playGameButton = (Button) findViewById(R.id.playGameButton);
-        //settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton = (Button) findViewById(R.id.settingsButton);
 
         playGameButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -34,7 +34,15 @@ public class StartMenu extends Activity {
              }
         );
 
+        settingsButton.setOnClickListener(settingsButtonListener);
 
     }
 
+
+    private View.OnClickListener settingsButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            Intent intent = new Intent(v.getContext(), SettingsActivity.class);
+            startActivity(intent);
+        }
+    };
 }
