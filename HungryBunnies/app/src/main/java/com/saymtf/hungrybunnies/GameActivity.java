@@ -2,8 +2,13 @@ package com.saymtf.hungrybunnies;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.opengl.GLU;
+import android.opengl.GLUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,17 +33,18 @@ public class GameActivity extends Activity {
         public MyGLSurfaceView(Context context) {
             super(context);
 
+            mRenderer = new MyGLRenderer();
+
             setEGLContextClientVersion(2);
             setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 
-            //getHolder().setFormat(PixelFormat.TRANSLUCENT);
+            getHolder().setFormat(PixelFormat.TRANSLUCENT);
             setBackgroundResource(R.mipmap.background_image);
-            //setZOrderOnTop(true);
+            setZOrderOnTop(true);
 
-            mRenderer = new MyGLRenderer();
 
             setRenderer(mRenderer);
-            //setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+            setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
         }
     }
 }
