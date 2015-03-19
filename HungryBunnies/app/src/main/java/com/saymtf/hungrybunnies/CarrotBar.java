@@ -68,10 +68,10 @@ public class CarrotBar {
     private FloatBuffer textureBuffer; // buffer holding the texture coord.
     private float texture[] = {
             // Mapping coordinates for the vertices
-            0.0f, 1.0f,     // top left     (V2)
-            0.0f, 0.0f,     // bottom left  (V1)
-            1.0f, 1.0f,     // top right    (V4)
-            1.0f, 0.0f      // bottom right (V3)
+            0.0f, 0.0f,     // top left     (V2)
+            0.0f, 1.0f,     // bottom left  (V1)
+            1.0f, 0.75f,     // top right    (V4)
+            0.0f, 0.0f      // bottom right (V3)
     };
 
     private int[] textures = new int[1];
@@ -120,21 +120,9 @@ public class CarrotBar {
     public void loadGLTexture(Context context) {
 
         // Load the Texture
-        mDirtTextureHandle = TextureHelper.loadTexture(context, R.mipmap.dirt_layer_image);
+        mDirtTextureHandle = TextureHelper.loadTexture(context, R.drawable.dirt_layer_image);
         GLES20.glGenerateMipmap(GLES20.GL_TEXTURE_2D);
-/*
-        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.mipmap.dirt_layer_image);
-        GLES20.glGenTextures(1, textures, 0); // generate
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]); // bind
 
-        //create nearest filtered texture
-        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_NEAREST);
-        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
-
-        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
-
-        bitmap.recycle();
-        */
     }
 
     public void draw() {
