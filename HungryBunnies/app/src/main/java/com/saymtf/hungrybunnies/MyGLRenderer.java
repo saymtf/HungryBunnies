@@ -1,5 +1,6 @@
 package com.saymtf.hungrybunnies;
 
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
@@ -15,16 +16,21 @@ import javax.microedition.khronos.opengles.GL10;
 public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private CarrotBar carrotBar;
-
+    private Context mActiivityContext;
 
     private float[] mMVPMatrix = new float[16];
     private float[] mViewMatrix = new float[16];
     private float[] mProjectionMatrix = new float[16];
 
 
+    public MyGLRenderer(final Context context) {
+        mActiivityContext = context;
+    }
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         carrotBar = new CarrotBar();
+
+        carrotBar.loadGLTexture(mActiivityContext);
 
     }
 
@@ -46,4 +52,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         return shader;
     }
+
+
+
 }

@@ -33,7 +33,7 @@ public class GameActivity extends Activity {
         public MyGLSurfaceView(Context context) {
             super(context);
 
-            mRenderer = new MyGLRenderer();
+            mRenderer = new MyGLRenderer(context);
 
             setEGLContextClientVersion(2);
             setEGLConfigChooser(8, 8, 8, 8, 16, 0);
@@ -41,6 +41,7 @@ public class GameActivity extends Activity {
             getHolder().setFormat(PixelFormat.TRANSLUCENT);
             setBackgroundResource(R.mipmap.background_image);
             setZOrderOnTop(true);
+
 
 
             setRenderer(mRenderer);
