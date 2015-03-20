@@ -70,8 +70,8 @@ public class CarrotBar {
             // Mapping coordinates for the vertices
             0.0f, 0.0f,     // top left     (V2)
             0.0f, 1.0f,     // bottom left  (V1)
-            1.0f, 0.75f,     // top right    (V4)
-            0.0f, 0.0f      // bottom right (V3)
+            1.0f, 1.0f,     // top right    (V4)
+            1.0f, 0.0f      // bottom right (V3)
     };
 
     private int[] textures = new int[1];
