@@ -63,7 +63,6 @@ public class CarrotBar {
     private final int vertexCount = squareCoords.length / COORDS_PER_VERTEX;
     private final int vertexStride = COORDS_PER_VERTEX * 4;
 
-
     /*Texture*/
     private FloatBuffer textureBuffer; // buffer holding the texture coord.
     private float texture[] = {
@@ -74,7 +73,6 @@ public class CarrotBar {
             1.0f, 0.0f      // bottom right (V3)
     };
 
-    private int[] textures = new int[1];
 
     public CarrotBar() {
 
