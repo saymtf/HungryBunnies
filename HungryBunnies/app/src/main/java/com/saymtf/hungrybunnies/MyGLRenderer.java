@@ -30,8 +30,6 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         carrotBar = new CarrotBar();
         carrotBar.loadGLTexture(mActiivityContext);
-
-
     }
 
     public void onDrawFrame(GL10 unused) {
