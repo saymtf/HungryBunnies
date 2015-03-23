@@ -52,7 +52,7 @@ public class CarrotBar {
     float color[] = { 0.63671875f, 0.0f, 0.22265625f, 1.0f };
 
 
-    private final int mProgram;
+    //private final int mProgram;
 
     private int mPositionHandle;
     private int mColorHandle;
@@ -75,7 +75,7 @@ public class CarrotBar {
     };
 
 
-    public CarrotBar() {
+    public CarrotBar(int mProgram) {
 
         //init vertex byte buffer for shape coord.
         ByteBuffer bb = ByteBuffer.allocateDirect(
@@ -108,7 +108,7 @@ public class CarrotBar {
         int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
         int fragmentShader = MyGLRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
 
-        mProgram = GLES20.glCreateProgram();
+        //mProgram = GLES20.glCreateProgram();
         GLES20.glAttachShader(mProgram, vertexShader);
         GLES20.glAttachShader(mProgram, fragmentShader);
 
@@ -124,7 +124,7 @@ public class CarrotBar {
 
     }
 
-    public void draw() {
+    public void draw(int mProgram) {
         GLES20.glUseProgram(mProgram);
 
         mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
@@ -135,7 +135,7 @@ public class CarrotBar {
         mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
         GLES20.glUniform4fv(mColorHandle, 1, color, 0);
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE0); // for texture use
 
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, vertexCount);
 
