@@ -19,7 +19,7 @@ public class Carrots {
     private int mColorHandler;
     private int mCarrotHandler;
     private int mTextureCoordinateHandle;
-    private int mTextureCoordinateDataSize;
+    private int mTextureCoordinateDataSize = 2;
     private int mTextureUniformHandle;
 
     ///private final int mProgram;
@@ -96,7 +96,7 @@ public class Carrots {
 
 
     public void loadGLTexture(Context context) {
-        mCarrotHandler = TextureHelper.loadTexture(context, R.drawable.carrot_01);
+        mCarrotHandler = TextureHelper.loadTexture(context, R.mipmap.carrot_01);
         GLES20.glGenerateMipmap(GLES20.GL_TEXTURE_2D);
     }
 
