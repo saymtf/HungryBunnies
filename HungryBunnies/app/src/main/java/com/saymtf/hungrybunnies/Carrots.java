@@ -121,7 +121,7 @@ public class Carrots {
         mTextureUniformHandle = GLES20.glGetUniformLocation(mProgram, "u_Texture");
         mTextureCoordinateHandle = GLES20.glGetAttribLocation(mProgram, "a_TexCoordinate");
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
 
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mCarrotHandler);
         GLES20.glUniform1i(mTextureUniformHandle, 0);
