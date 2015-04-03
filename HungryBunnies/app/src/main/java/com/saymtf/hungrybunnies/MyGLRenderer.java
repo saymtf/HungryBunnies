@@ -17,11 +17,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private Context mActiivityContext;
 
-    private CarrotBar carrotBar;
+
     private Carrots carrots;
+    private CarrotBar carrotBar;
 
     private int mProgram;
-    //private int carrotProgram;
 
 
 
@@ -35,16 +35,17 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     }
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
-        //barProgram = GLES20.glCreateProgram();
-        //carrotProgram = GLES20.glCreateProgram();
         mProgram = GLES20.glCreateProgram();
 
 
-        carrotBar = new CarrotBar(mProgram);
-        carrots = new Carrots(mProgram);
 
+        carrotBar = new CarrotBar(mProgram);
         carrotBar.loadGLTexture(mActiivityContext);
+
+        carrots = new Carrots(mProgram);
         carrots.loadGLTexture(mActiivityContext);
+
+
     }
 
     public void onDrawFrame(GL10 unused) {
