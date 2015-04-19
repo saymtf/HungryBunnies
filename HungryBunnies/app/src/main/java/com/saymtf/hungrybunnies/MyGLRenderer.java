@@ -20,6 +20,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private Carrots carrots;
     private CarrotBar carrotBar;
+    private Bunny bunny;
+
 
     private int mProgram;
 
@@ -37,6 +39,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         mProgram = GLES20.glCreateProgram();
 
+        bunny = new Bunny(mProgram);
+        //bunny.loadGLTexture(mActiivityContext);
 
 
         carrotBar = new CarrotBar(mProgram);
@@ -53,7 +57,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
        carrots.draw(mProgram);
 
-
+        bunny.draw(mProgram);
 
        // Carrot Bar Stays Bellow Everything.
        carrotBar.draw(mProgram);
