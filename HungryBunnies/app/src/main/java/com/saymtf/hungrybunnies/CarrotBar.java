@@ -135,7 +135,7 @@ public class CarrotBar {
         mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
         GLES20.glUniform4fv(mColorHandle, 1, color, 0);
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0); // for texture use
+        //GLES20.glActiveTexture(GLES20.GL_TEXTURE1); // for texture use
 
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, vertexCount);
 
@@ -149,7 +149,7 @@ public class CarrotBar {
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
 
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mDirtTextureHandle);
-        GLES20.glUniform1i(mTextureUniformHandle, 0);
+        GLES20.glUniform1i(mTextureUniformHandle, 1);
         textureBuffer.position(0);
         GLES20.glVertexAttribPointer(mTextureCoordinateHandle, mTextureCoordinateDataSize, GLES20.GL_FLOAT, false, 0, textureBuffer);
 

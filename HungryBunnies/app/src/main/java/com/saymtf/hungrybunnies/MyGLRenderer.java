@@ -16,12 +16,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private Context mActiivityContext;
-
-
+    
     private Carrots carrots;
     private CarrotBar carrotBar;
     private Bunny bunny;
-
 
     private int mProgram;
 
