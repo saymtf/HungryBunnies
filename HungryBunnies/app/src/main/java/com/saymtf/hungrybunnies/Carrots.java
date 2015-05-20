@@ -41,22 +41,22 @@ public class Carrots {
             "void main() {" +
             /*"   gl_FragColor = vColor;" +*/
             "   gl_FragColor = texture2D(u_Texture, v_TexCoordinate);" +
-            "}";
+     "}";
 
-    static float carrotCoords[] = {
-            -0.1f,  0.0f, 0.0f,
-            0.0f, -0.5f, 0.0f,
-            0.1f, 0.0f, 0.0f,
-            0.0f, 0.05f, 0.0f };
+static float carrotCoords[] = {
+        -0.75f,  -0.256f, 0.0f,
+        -1.0f, -1.0f, 0.0f,
+        -1.0f, -1.00f, 0.0f,   // bottom right
+        -0.85f,  -0.256f, 0.0f }; // top right
 
-    private short drawOrder[] = {0,1,2,0,2,3};
-    private float color[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+private short drawOrder[] = {0,1,2,0,2,3};
+private float color[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 
-    private final int COORDS_PER_VERTEX = 3;
-    private final int vertexStride = COORDS_PER_VERTEX * 4;
-    private final int vertexCount = carrotCoords.length / COORDS_PER_VERTEX;
+private final int COORDS_PER_VERTEX = 3;
+private final int vertexStride = COORDS_PER_VERTEX * 4;
+private final int vertexCount = carrotCoords.length / COORDS_PER_VERTEX;
 
-    /* TEXTURE */
+/* TEXTURE */
     private FloatBuffer textureBuffer;
     private float texture[] =
             {
@@ -121,7 +121,7 @@ public class Carrots {
         mTextureUniformHandle = GLES20.glGetUniformLocation(mProgram, "u_Texture");
         mTextureCoordinateHandle = GLES20.glGetAttribLocation(mProgram, "a_TexCoordinate");
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
 
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mCarrotHandler);
         GLES20.glUniform1i(mTextureUniformHandle, 0);
