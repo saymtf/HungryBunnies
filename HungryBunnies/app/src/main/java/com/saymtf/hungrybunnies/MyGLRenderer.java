@@ -44,20 +44,19 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         carrotBar = new CarrotBar(mProgram);
         carrotBar.loadGLTexture(mActiivityContext);
 
-
-
         bunny = new Bunny(mProgram);
-        //bunny.loadGLTexture(mActiivityContext);
+        bunny.loadGLTexture(mActiivityContext);
 
     }
 
     public void onDrawFrame(GL10 unused) {
        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
 
+
+        carrots.draw(mProgram);
         bunny.draw(mProgram);
 
 
-        carrots.draw(mProgram);
 
 
        // Carrot Bar Stays Bellow Everything.

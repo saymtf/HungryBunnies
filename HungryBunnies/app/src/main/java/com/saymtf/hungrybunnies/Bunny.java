@@ -34,16 +34,16 @@ public class Bunny {
     static final int COORDS_PER_VERTEX = 3;
     static float squareCoords[] = {
             0.0f,  0.0f, 0.0f,   // top left
-            0.0f, 0.0f, 0.0f,   // bottom left
-            0.0f, 0.0f, 0.0f,   // bottom right
-            0.0f,  0.0f, 0.0f }; // top right
+            0.0f, -0.25f, 0.0f,   // bottom left
+            0.25f, -0.25f, 0.0f,   // bottom right
+            0.25f, 0.0f, 0.0f }; // top right
 
     private short drawOrder[] = {0,1,2,0,2,3}; // order to draw vertices
     float color[] = {0.3f, 0.4f, 0.5f, 1.0f};
 
     private int mPositionHandler;
     private int mColorHandle;
-    //private int mDirtTextureHandle;
+    private int mBunnyTextureHandle;
     private int mTextureUniformHandle;
     private int mTextureCoordinateHandle;
     private final int mTextureCoordinateDataSize = 2;
@@ -52,7 +52,7 @@ public class Bunny {
     private final int vertexStride = COORDS_PER_VERTEX * 4;
 
     /*Texture*/
-    /*private FloatBuffer textureBuffer; // buffer holding the texture coord.
+    private FloatBuffer textureBuffer; // buffer holding the texture coord.
     private float texture[] = {
             // Mapping coordinates for the vertices
             0.0f, 0.0f,     // top left     (V2)
@@ -60,7 +60,7 @@ public class Bunny {
             1.0f, 1.0f,     // top right    (V4)
             1.0f, 0.0f      // bottom right (V3)
     };
-    */
+
     public Bunny(int mProgram) {
 
         //init vertex byte buffer for shape coord.
@@ -81,14 +81,14 @@ public class Bunny {
         drawListBuffer = dlb.asShortBuffer();
         drawListBuffer.put(drawOrder);
         drawListBuffer.position(0);
-        /*
+
         // Texture Buffer
         bb = ByteBuffer.allocateDirect(texture.length * 4);
         bb.order(ByteOrder.nativeOrder());
         textureBuffer = bb.asFloatBuffer();
         textureBuffer.put(texture);
         textureBuffer.position(0);
-        */
+
 
         //Apply shaders to program
         int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
@@ -105,8 +105,8 @@ public class Bunny {
     public void loadGLTexture(Context context) {
 
         // Load the Texture
-        //mDirtTextureHandle = TextureHelper.loadTexture(context, R.drawable.dirt_layer_image);
-        //GLES20.glGenerateMipmap(GLES20.GL_TEXTURE_2D);
+        mBunnyTextureHandle = TextureHelper.loadTexture(context, R.drawable.dirt_layer_image);
+        GLES20.glGenerateMipmap(GLES20.GL_TEXTURE_2D);
 
     }
 
@@ -121,25 +121,23 @@ public class Bunny {
         mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
         GLES20.glUniform4fv(mColorHandle, 1, color, 0);
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0); // for texture use
-
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, vertexCount);
 
         GLES20.glDisableVertexAttribArray(mPositionHandler);
 
         // APPLY TEXTURE
-        /*
+
         mTextureUniformHandle = GLES20.glGetUniformLocation(mProgram, "u_Texture");
         mTextureCoordinateHandle = GLES20.glGetAttribLocation(mProgram, "a_TexCoordinate");
 
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE2);
 
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mDirtTextureHandle);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mBunnyTextureHandle);
         GLES20.glUniform1i(mTextureUniformHandle, 0);
         textureBuffer.position(0);
         GLES20.glVertexAttribPointer(mTextureCoordinateHandle, mTextureCoordinateDataSize, GLES20.GL_FLOAT, false, 0, textureBuffer);
 
         GLES20.glEnableVertexAttribArray(mTextureCoordinateHandle);
-        */
+
     }
 }
