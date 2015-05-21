@@ -90,7 +90,6 @@ public class Bunny {
         textureBuffer.position(0);
         */
 
-
         //Apply shaders to program
         int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
         int fragmentShader = MyGLRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
