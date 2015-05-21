@@ -44,13 +44,14 @@ public class Carrots {
      "}";
 
 static float carrotCoords[] = {
-        -0.75f,  -0.256f, 0.0f,
-        -1.0f, -1.0f, 0.0f,
-        -1.0f, -1.00f, 0.0f,   // bottom right
-        -0.85f,  -0.256f, 0.0f }; // top right
+        -0.725f, 0.956f, 0.0f,
+        0.8f, 1.0f, 0.0f,
+        0.875f, 0.956f, 0.0f,
+        0.0f, 0.53f, 0.0f
+         };
 
 private short drawOrder[] = {0,1,2,0,2,3};
-private float color[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+private float color[] = { 0.0f, 0.0f, 0.0f, 0.0f };
 
 private final int COORDS_PER_VERTEX = 3;
 private final int vertexStride = COORDS_PER_VERTEX * 4;
